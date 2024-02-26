@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoderPage</title>
+    <link rel="stylesheet" href="./LoderPage.css" />
+  </head>
+  <body onload="myFunction()" style="margin: 0">
+    <div id="loader"></div>
+
+    <div style="display: none" id="myDiv" class="animate-bottom">
+      <!-- <h2>Payment Successful</h2>
+      <p>Some text in my newly loaded page..</p> -->
+      <div class="payment-Successful">
+        <img
+          src="data:image/png;base64,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"
+          alt="logo"
+        />
+        <h1>Your Payment was successful !!!</h1>
+        <h3>
+          Thank you for payment. <br /><br />
+          We will be in Contact with with more details shortly
+        </h3>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var myVar;
+  var home;
+
+  function myFunction() {
+    myVar = setTimeout(showPage, 4000);
+    home = setTimeout(homepageCall, 6500);
+  }
+
+  function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("myDiv").style.display = "block";
+  }
+  function homepageCall() {
+    location.href = "./index.html";
+  }
+</script>

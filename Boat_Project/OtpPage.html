@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./OtpPage.css" />
+  </head>
+  <body>
+    <!-- logo and button section start -->
+    <section class="logoAndButton-Section">
+      <div class="contener">
+        <div class="addres-logo">
+          <a href="./index.html">
+            <img
+              src="https://www.boat-lifestyle.com/cdn/shop/files/boAt_logo_small_3067da8c-a83b-46dd-b28b-6ef1e16ccd17_small.svg?v=1693549434"
+              alt="1"
+          /></a>
+        </div>
+      </div>
+    </section>
+    <!-- logo and button section END -->
+    <!------- otp section start ------>
+    <section class="oto-secton">
+      <div class="otp-mainDiv">
+        <div class="otp-heading"><h1>Enter OTP</h1></div>
+        <div class="otp-inputDiv">
+          <form onsubmit="submitData()">
+            <input
+              type="text"
+              maxlength="1"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              id="otp-input-1"
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              maxlength="1"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              id="otp-input-2"
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              maxlength="1"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              id="otp-input-3"
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              maxlength="1"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+              id="otp-input-4"
+              autocomplete="off"
+            />
+
+            <div class="otp-btn"><button>Verify</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!------ otp section end ------->
+  </body>
+</html>
+<script>
+  // var MyOTP = localStorage.getItem("Randomotps");
+
+  function submitData() {
+    event.preventDefault();
+    var MyRandomOTP = localStorage.getItem("Randomotps");
+    var otp1 = document.getElementById("otp-input-1").value;
+    var otp2 = document.getElementById("otp-input-2").value;
+    var otp3 = document.getElementById("otp-input-3").value;
+    var otp4 = document.getElementById("otp-input-4").value;
+
+    var otpOBj = { otp1s: otp1, otp2s: otp2, otp3s: otp3, otp4s: otp4 };
+
+    var MainOTP = otpOBj.otp1s + otpOBj.otp2s + otpOBj.otp3s + otpOBj.otp4s;
+    // console.log(MyRandomOTP);
+    // console.log(MainOTP);
+
+    if (MyRandomOTP == MainOTP) {
+      // alert("Payment succesfull");
+      location.href = "./LoderPage.html";
+    } else {
+      alert("Wrong OTP");
+    }
+    var otp1 = (document.getElementById("otp-input-1").value = "");
+    var otp2 = (document.getElementById("otp-input-2").value = "");
+    var otp3 = (document.getElementById("otp-input-3").value = "");
+    var otp4 = (document.getElementById("otp-input-4").value = "");
+  }
+</script>
+
+<script>
+  // --------auto input fied start-----------
+  const inputs = document.querySelectorAll("input");
+
+  inputs.forEach((input, index) => {
+    input.dataset.index = index;
+    input.addEventListener("keyup", handleOtp);
+    input.addEventListener("paste", handleOnPasteOtp);
+  });
+
+  function handleOtp(e) {
+    /**
+     * <input type="text" 👉 maxlength="1" />
+     * 👉 NOTE: On mobile devices `maxlength` property isn't supported,
+     * So we to write our own logic to make it work. 🙂
+     */
+    const input = e.target;
+    let value = input.value;
+    let isValidInput = value.match(/[0-9a-z]/gi);
+    input.value = "";
+    input.value = isValidInput ? value[0] : "";
+
+    let fieldIndex = input.dataset.index;
+    if (fieldIndex < inputs.length - 1 && isValidInput) {
+      input.nextElementSibling.focus();
+    }
+
+    if (e.key === "Backspace" && fieldIndex > 0) {
+      input.previousElementSibling.focus();
+    }
+
+    if (fieldIndex == inputs.length - 1 && isValidInput) {
+      submit();
+    }
+  }
+
+  function handleOnPasteOtp(e) {
+    const data = e.clipboardData.getData("text");
+    const value = data.split("");
+    if (value.length === inputs.length) {
+      inputs.forEach((input, index) => (input.value = value[index]));
+      submit();
+    }
+  }
+
+  function submit() {
+    console.log("Submitting...");
+    // 👇 Entered OTP
+    let otp = "";
+    inputs.forEach((input) => {
+      otp += input.value;
+      input.disabled = true;
+      input.classList.add("disabled");
+    });
+    console.log(otp);
+    // 👉 Call API below
+  }
+</script>

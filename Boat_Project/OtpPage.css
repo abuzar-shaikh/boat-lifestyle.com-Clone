@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;900;1,100;1,200;1,300;1,500;1,600&display=swap");
+/* ganaral start */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "urbanist", sans-serif;
+}
+html {
+  font-size: 62.5%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+p,
+li,
+a,
+label {
+  font-family: "urbanist", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400px;
+  color: var(--para-color);
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+/* ganaral end */
+/* theme start */
+
+/* theme end */
+/* start navbar section */
+.contener {
+  margin: 0 auto;
+  padding: 1.8rem 4rem;
+}
+/* ganaral csss end */
+/* -------payment page start---- */
+.addres-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.addres-logo img {
+  width: 15rem;
+  height: auto;
+}
+/* <!------- otp section start ------> */
+/* .oto-secton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+.otp-mainDiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 35%;
+}
+
+form > input {
+  width: 4rem;
+  height: 4rem;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid blue;
+  font-size: 22px;
+  padding: 10px;
+  font-weight: bolder;
+}
+.otp-mainDiv h1 {
+  font-size: 26px;
+  font-weight: bolder;
+  margin-bottom: 3rem;
+}
+.otp-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 4rem;
+}
+.otp-mainDiv button {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
+.otp-mainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+/* <!------ otp section end -------> */
+.otp-mainDiv {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem 0rem 3rem 0rem;
+  border-radius: 5px;
+  width: 35%;
+}
+.otp-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.otp-heading h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 4rem;
+}
+.otp-inputDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 20px 0px 40px 0px;
+}
+.otp-inputDiv input {
+  width: 4rem;
+  height: 4rem;
+  margin: 5px;
+  border-radius: 5px;
+  border: 2px solid #55525c;
+  outline: none;
+  font-size: 22px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  transition: all 0.1s;
+}
+.otp-inputDiv input:focus {
+  border: 2px solid #e70d0d;
+  box-shadow: 0 0 2px 2px #cf230c6a;
+}
+.disabled {
+  opacity: 0.5;
+}
+.otp-btn {
+  margin-top: 40px;
+}
+.otp-btn button {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
+.oto-secton {
+  /* height: 78vh; */
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* border: 1px solid rgb(33, 19, 156); */
+}
+
+@media (width<=1216px) {
+  .otp-mainDiv {
+    margin-top: 4rem;
+    width: 100%;
+    padding: 4rem 0rem 4rem 0rem;
+  }
+  .oto-secton {
+    padding: 10px;
+  }
+}
