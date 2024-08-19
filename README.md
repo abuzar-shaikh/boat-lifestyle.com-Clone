@@ -1,5 +1,4 @@
 # boat-lifestyle.com-Clone
-boat-lifestyle.com Clone
 
 # boat-lifestyle.com-Clone
 I have cloned a e-commarce application called boat-lifestyle.com Clone It simply meant allowing to buy customers boat headphones. Over time it has evolved to provide multiple benefits on one platform for all.
